@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <main class="main">
+    <nav>
+      <div id="logo">
+        <img
+          src="https://www.brandlogopng.com/files/logo/yelp/yelp-mike-icon-transparent-marketing-media-social-website-m8w4.png"
+          alt="">
+        <h1>dashboard</h1>
+      </div>
+      <ul>
+        <li><a href=""><i class="fa-solid fa-house-chimney"></i>
+            <p>home</p>
+          </a></li>
+        <li><a href=""><i class="fa-solid fa-list-check"></i>
+            <p>to do list</p>
+          </a></li>
+        <li><a href=""><i class="fa-solid fa-plane-departure"></i>
+            <p>daily planner</p>
+          </a></li>
+        <li><a href=""><i class="fa-solid fa-fire"></i>
+            <p>motivation</p>
+          </a></li>
+        <li><a href=""><i class="fa-solid fa-clock"></i>
+            <p>pomodoro timer</p>
+          </a></li>
+      </ul>
+    </nav>
+
+    <section class="view pb-5 relative">
+      <section class="top-nav">
+        <div class="card">
+          <input type="text" placeholder="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="card-1">
+          <div class="notification">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div class="user overflow-hidden">
+<img src="" alt="" class="w-full h-full object-fit user-img object-center">
+          </div>
+          <div class="user-name font-bold">
+           
+          </div>
+        </div>
+      </section>
+      <section class="user-info">
+        <div class="card">
+          <h1 id="greeting">good morning, shivam</h1>
+          <p>let's start the day with smile!</p>
+        </div>
+        <div class="card-1">
+          <div class="date" id="date-1"></div>
+          <div class="week">
+            <h1 id="weeks"></h1>
+            <p id="month"></p>
+          </div>
+        </div>
+      </section>
+      <section class="home-viws flex gap-5 ">
+        <div class="cards" id="list-data">
+    
+        </div>
+
+        <div class="flex-1  p-6 bg-white shadow-xl rounded-2xl border border-gray-200">
+          <div class="flex items-center justify-between h-15 ">
+            <div class="box">
+              <h2 class="text-2xl font-bold">Today's Schedule</h2>
+              <p class="capitalize font-normal">never miss your task</p>
+            </div>
+            <div class="flex h-full  items-center gap-2">
+              <button class="bg-yellow-500/30 text-white w-8 h-8 rounded-full"><i class="fa-solid fa-eye"></i></button>
+              <p class="capitalize font-bold">hide</p>
+            </div>
+          </div>
+
+          <!-- Dotted current time line -->
+          <div class="timelinebox relative w-full h-100">
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black z-10">
+              <div class="w-2 h-2 bg-black rounded-full absolute -top-1 -left-1"></div>
+            </div>
+            <div
+            class="absolute left-5 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
+          </div>
+          <div
+          class="absolute left-25 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
+        </div>
+        <div
+        class="absolute left-45 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
+      </div>
+      <div
+      class="absolute left-65 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
+    </div>
+    <div
+    class="absolute right-60 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
+  </div>
+  <div
+  class="absolute right-42 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
+</div>
+<div
+class="absolute right-23 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
+</div>
+
+<div
+class="absolute right-3 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
+</div>
+          </div>
+          <!--------timeline----->
+          <div class="time-line flex justify-between lowercase h-7">
+            <span>9am</span>
+            <span>10am</span>
+            <span>11am</span>
+            <span>12am</span>
+            <span>1pm</span>
+            <span>2PM</span>
+            <span>3PM</span>
+            <span>4PM</span>
+            <span>5PM</span>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="storage w-full flex mt-5 gap-5">
+        <div class="w-[520px] bg-white rounded-2xl shadow-2xl text-center space-y-4 h-70 flex flex-col justify-evenly"
+          style="padding: 20px;">
+          <div class="flex items-center justify-center space-x-2">
+            <img src="https://cdn-icons-png.flaticon.com/512/2252/2252567.png" alt="" class="w-15">
+            <h2 class="text-2xl font-semibold text-gray-800">Storage</h2>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="relative w-full h-5 bg-gray-100 rounded-full overflow-hidden">
+            <div class="absolute top-0 left-0 h-full bg-black rounded-full" id="usage-bar" style="width: 40%;"></div>
+          </div>
+          <p class="text-xl text-gray-600 capitalize" id="storage-text">2 mb of 5 mb used</p>
+
+          <!-- Button -->
+          <button
+            class="bg-black text-white w-full capitalize  rounded-md font-medium hover:bg-gray-900 transition h-10 cursor-pointer"
+            id="clear">
+            clear data
+          </button>
+        </div>
+
+        <div
+          class="flex-1 mx-auto bg-white rounded-2xl shadow-xl text-center space-y-4 h-70 flex flex-col justify-evenly rounded"
+          style="padding: 20px;">
+
+        </div>
+
+      </div>
+<section class="w-full h-[100vh] bg-white absolute top-0 z-40  px-2 overflow-hidden">
+  <div class="flex justify-between mt-5">
+    <h1 class="text-5xl capitalize font-bold">add list</h1>
+    <button class="bg-red-500 w-20 h-10 rounded font-bold">close</button>
+  </div>
+  <div class="cards flex">
+    <div class="card w-[450px]">
+      <label for="title" class="font-bold capitalize">title*</label>
+      <input type="text" name="" id="title" class="w-full outline-none border border-black/50 h-10 placeholder:capitalize px-2 rounded-lg" placeholder="add title">
+      <div class="time flex gap-2">
+<div class="box w-[50%]">
+  <label for="" class="font-bold capitalize" >date</label>
+  <input type="date" class="w-full outline-none border border-black/50 h-10 placeholder:capitalize px-2 rounded-lg" id="date">
+
+</div>
+<div class="box w-[50%]">
+  <label for="" class="font-bold capitalize">time</label>
+  <input type="time" class="w-full outline-none border border-black/50 h-10 placeholder:capitalize px-2 rounded-lg" id="time">
+  
+</div>
+      </div>
+      <label for="details" class="font-bold capitalize" >details*</label>
+    <textarea name="" id="details" class="w-full outline-none border border-black/50 h-10 placeholder:capitalize px-2 rounded-lg h-[100%]" placeholder="add details"></textarea>
+  <button class="bg-green-500/50 font-bold capitalize h-10 w-50 active:scale-95 transition-all" id="submit">add work...</button>  
+  </div>
+    <div class="card flex-1">
+      <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-6">
+        <h1 class="text-2xl font-bold mb-4 text-black/70">📋 my task</h1>
+ <div id="list">
+  
+ </div>
+  
+      </div>
+    </div>
+  </div>
+</section>
+
+    </section>
+
+
+    
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

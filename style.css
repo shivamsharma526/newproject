@@ -1,0 +1,353 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: black;
+    --secondory: white;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+.main {
+    width: 100%;
+    height: 100%;
+    background: var(--secondory);
+    display: flex;
+}
+
+.main nav {
+    width: 100px;
+    height: 100%;
+}
+
+.main nav #logo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    gap: 5px;
+}
+
+.main nav #logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    margin: auto;
+}
+
+.main nav #logo h1 {
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: 100;
+    color: var(--secondory);
+    display: none;
+}
+
+.main nav ul {
+    list-style: none;
+    background: rgba(255, 255, 255, 0.148);
+    width: 50px;
+    margin: auto;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.main nav ul li a {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: var(--secondory);
+    text-decoration: none;
+    text-transform: capitalize;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s linear;
+}
+
+.main nav ul li a:hover {
+    background: rgba(139, 162, 238, 0.349);
+}
+
+.main nav ul li a p {
+    display: none;
+}
+
+.active {
+    background: rgba(139, 162, 238, 0.349);
+}
+
+@media(min-width:720px) {
+    .main nav {
+        width: 300px;
+        height: 100%;
+        background: var(--primary);
+        padding: 10px;
+    }
+
+    .main nav #logo {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 80px;
+        gap: 5px;
+    }
+
+    .main nav #logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        object-position: center;
+        margin: 0;
+    }
+
+    .main nav #logo h1 {
+        font-size: 30px;
+        text-transform: capitalize;
+        font-weight: 100;
+        color: var(--secondory);
+        display: block;
+    }
+
+    .main nav ul {
+        background: none;
+        width: 100%;
+        margin: 0;
+        gap: 15px;
+        display: block;
+
+    }
+
+    .main nav ul li a {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+        color: var(--secondory);
+        text-decoration: none;
+        text-transform: capitalize;
+        height: 50px;
+        width: 90%;
+        justify-content: start;
+        border-radius: 0%;
+        transition: all 0.2s linear;
+        padding: 0 10px;
+    }
+
+    .main nav ul li a i {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+    }
+
+    .main nav ul li a:hover {
+        background: rgba(139, 162, 238, 0.349);
+    }
+
+    .main nav ul li a p {
+        display: block;
+        font-size: 20px;
+        margin-left: 20px;
+        letter-spacing: 0px;
+    }
+}
+
+.view {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.view .top-nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav .card {
+    position: relative;
+    height: 40px;
+}
+
+.top-nav .card input {
+    width: 400px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.575);
+    padding-left: 35px;
+    outline: 0;
+}
+
+.top-nav .card i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: rgb(255, 226, 78);
+    font-size: 20px;
+}
+
+.top-nav .card p {
+    text-transform: capitalize;
+}
+
+.top-nav .card-1 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.top-nav .card-1 .notification {
+    width: 40px;
+    height: 40px;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    color: var(--secondory);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.top-nav .card-1 .user {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info .card h1 {
+    font-size: 40px;
+    text-transform: capitalize;
+    letter-spacing: -1px;
+}
+
+.user-info .card p {
+    text-transform: capitalize;
+    letter-spacing: 0px;
+}
+
+.user-info .card-1 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-info .card-1 .date {
+    width: 40px;
+    height: 40px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+
+}
+
+.week {
+    text-transform: capitalize;
+
+    p {
+        font-weight: 100;
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+}
+
+.home-viws {
+    width: 100%;
+    margin-top: 20px;
+
+}
+
+.home-viws .cards {
+    width: 520px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.home-viws .cards .card {
+    min-width: 250px;
+    max-width: 50%;
+    /* height: 250px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.107);
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+transition: all 0.2s linear;
+    .top {
+        width: 100%;
+        height: 50px;
+    }
+
+    .image-1 {
+        width: 50px;
+        height: 50px;
+        /* background: black; */
+        position: absolute;
+        left: 20px;
+        top: 25px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+}
+.home-viws .cards .card:hover{
+    transform: scale(1.02);
+}
+
+.storage  .storage-show{
+    width: 350px;
+    height: 250px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    opacity: 10px;
+    background: #00000064;
+    border-radius: 10px;
+    display: flex;
+   justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(252, 252, 252, 0.16);
+    
+}
+.storage  .storage-show .card{
+    width: 90%;
+    height: 90%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+}
+
