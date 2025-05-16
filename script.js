@@ -1,177 +1,128 @@
-var listData = document.querySelector("#list-data");
-var userimg = document.querySelector(".user-img");
-var userName = document.querySelector(".user-name");
-var weeks = document.querySelector("#weeks");
-var month = document.querySelector("#month");
-var dateui = document.querySelector("#date-1");
-var subm = document.querySelector("#submit")
-var title = document.querySelector("#title");
-var inputdate = document.querySelector("#date");
-var inptime = document.querySelector("#time");
-var details = document.querySelector("#details");
-var list = document.querySelector("#list");
-var user = [
-    {
-        username: "shivam",
-        userImg: "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
-        password: "12313",
+const toggle = document.getElementById("darkModeToggle");
+const icon = document.getElementById("icon");
+const html = document.documentElement;
+
+const playTime = document.querySelector("#play-time");
+const timeDisplay = document.querySelector("#timeDisplay");
+const reset = document.querySelector("#reset");
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+    html.classList.add("dark");
+    toggle.checked = true;
+    icon.innerHTML = '<i class="fa-regular fa-sun"></i>';
+}
+
+toggle.addEventListener("change", () => {
+    html.classList.toggle("dark");
+    const isDark = html.classList.contains("dark");
+    icon.innerHTML = isDark ? '<i class="fa-regular fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
+let s = 0;
+let m = 0;
+let h = 0;
+
+function timer() {
+    s++;
+    if (s === 60) {
+        s = 0;
+        m++;
     }
-]
 
-var card = [
-    {
-        headline: "to do list",
-        bg: "#ecf2ff",
-        url: "./img/icon.png",
-        text: "You want to add something? Click me!"
-    },
-    {
-        headline: "daily planner",
-        bg: "#fffceb",
-        url: "./img/icon2].png",
-        text: "You want to add something? Click me!"
-    },
-    {
-        headline: "motivation",
-        bg: "#feebec",
-        url: "./img/icon3.png",
-        text: "You want to add something? Click me!"
-    },
-    {
-        headline: "pomodoro timer",
-        bg: "#ebfff4",
-        url: "./img/icon.png",
-        text: "You want to add something? Click me!"
-    },
-]
-let data = '';
-card.forEach((e, idx) => {
-    data += `
-    <div class="card" id="${idx}">
-            <div class="top bg-[${e.bg}]"></div>
-            <div class="image-1">
-              <img src="${e.url}" alt="">
-            </div>
-            <div class="content w-[90%] flex flex-col gap-1" style="margin: 35px auto;">
+    if (m === 60) {
+        m = 0;
+        h++;
+    }
 
-              <p class="capitalize font-bold tracking-tighter">${e.headline}</p>
-              <p class="capitalize font-bold text-sm tracking-tighter text-black/30">add task 21s ago</p>
-              <p class="text-sm text-black/30">${e.text}</p>
-              <div class="userinfo flex items-center gap-1">
-                <div class="w-8 h-8 bg-black rounded-full overflow-hidden">
-                  <img
-                    src="${user[0].userImg}"
+    // Format values with leading zero
+    let sec = String(s).padStart(2, '0');
+    let min = String(m).padStart(2, '0');
+    let hr = String(h).padStart(2, '0');
 
-                    alt="" class="w-full h-full object-cover">
-                </div>
-                <p class="font-bold text-black/50 capitalize text-[10px]">hy, ${user[0].username}</p>
-              </div>
-            </div>
-          </div>
-    `
+    timeDisplay.innerHTML = `${hr}:${min}:${sec}`;
+}
+
+
+let timerplay = false;
+let intervalId; // 🔁 global variable to hold interval ID
+
+playTime.addEventListener("click", (e) => {
+    if (timerplay) {
+        clearInterval(intervalId); // stop timer
+        timerplay = false;
+        playTime.innerHTML = `<i class="fa-solid fa-play"></i>`
+
+    } else {
+        intervalId = setInterval(timer, 1000); // start timer
+        timerplay = true;
+        playTime.innerHTML = `<i class="fa-solid fa-pause"></i>`
+
+    }
+});
+
+
+reset.addEventListener("click", () => {
+    clearInterval(intervalId); // stop timer
+    s = 0;
+    h = 0;
+    m = 0;
+    timeDisplay.innerHTML = `${h}0:${m}0:${s}0`;
+    playTime.innerHTML = `<i class="fa-solid fa-play"></i>`
+
+    console.log("jii")
 })
 
+const cardsbox = document.querySelector("#cards-box");
+let arr = [
+    {
+        img: "https://static.vecteezy.com/system/resources/thumbnails/018/245/125/small/3d-illustration-writing-to-do-list-png.png",
+        title: "to-do-list",
+        content: "0"
+    },
+    {
+        img: "https://png.pngtree.com/png-clipart/20230224/ourmid/pngtree-sticky-notes-pins-png-image_6616372.png",
 
-userimg.src = user[0].userImg;
-userName.textContent = user[0].username
-
-
-listData.innerHTML = data
-
-let date = new Date()
-function datefind() {
-    const weekName = date.toLocaleDateString("en-US", { weekday: "long" });
-    const monthName = date.toLocaleDateString("en-US", { month: "long" });
-    var td = date.getDate();
-    var newtd = td < 9 ? String(td).padStart(2, '0') : td;
-    dateui.textContent = newtd
-    month.textContent = monthName
-    weeks.textContent = weekName
-}
-
-
-
-
-datefind()
-
-
-function updateGreeting() {
-    const now = new Date();
-    const hour = now.getHours();
-    let greeting = "";
-
-    if (hour < 12) {
-      greeting = "Good Morning ☀️";
-    } else if (hour < 17) {
-      greeting = "Good Afternoon 🌞";
-    } else if (hour < 20) {
-      greeting = "Good Evening 🌇";
-    } else {
-      greeting = "Good Night 🌙";
+        title: "personal notes",
+        content: "0"
+    },
+    {
+        img: "https://png.pngtree.com/png-clipart/20250130/original/pngtree-calendar-3d-icon-isolated-on-a-transparent-background-symbolizing-schedules-and-png-image_20358144.png",
+        title: "upcoming event",
+        content: "0"
+    },
+    {
+        img: "https://static.vecteezy.com/system/resources/previews/051/320/399/non_2x/cartoon-metal-weights-barbell-icon-for-fitness-gym-free-png.png",
+        title: "workout record",
+        content: "0"
+    },
+    {
+        img: "https://icon-library.com/images/art-icon-png/art-icon-png-2.jpg",
+        title: "art style",
+        content: "0"
+    },
+    {
+        img: "https://png.pngtree.com/png-clipart/20250207/original/pngtree-study-material-marketplace-enhanced-with-3d-icon-isolated-on-a-transparent-png-image_20373771.png",
+        title: "study resources",
+        content: "0"
     }
-
-    function updateGreeting() {
-        const now = new Date();
-        const hour = now.getHours();
-        let greeting = "";
-    
-        if (hour < 12) {
-          greeting = "Good Morning ," ;
-        } else if (hour < 17) {
-          greeting = "Good Afternoon ," ;
-        } else if (hour < 20) {
-          greeting = "Good Evening ," ;
-        } else {
-          greeting = "Good Night ," ;
-        }
-        document.getElementById("greeting").innerText = greeting + user[0].username;
-      }
-    
-      // Call once at start
-      updateGreeting();
-    
-      // Then update every minute (60000 ms)
-      setInterval(updateGreeting, 60000);
-  }
-
-  // Call once at start
-  updateGreeting();
-
-  // Then update every minute (60000 ms)
-  setInterval(updateGreeting, 60000);
-
-
-function pp(){
-   var lis =   localStorage.getItem("todolist");
-   var dt =  JSON.parse(lis)
-   let data =''
-   dt.forEach((e)=>{
-    data += `
-    <div class="tasks mb-2">
-   <h1 class="title font-bold uppercase text-sm">${e.title}</h1>
-   <p class="text-[13px] inline">${e.deatils}</p>
-   <button class="inline-block"><i class="fa-solid fa-trash text-red-500/50"></i></button>
-   <p class="text-black/50 capitalize text-sm">${e.date} ${e.time}</p>
- </div>
- `
-   })
-list.innerHTML = data
-}
-pp()
-
-let toDo = [
-
 ]
 
-  subm.addEventListener("click" , ()=>{
- 
-let sk = {
-    title:title.value,
-    time:inptime.value,
-    date:inputdate.value,
-    deatils:details.value
+function uiDisplay() {
+    let data = ''
+
+    arr.forEach((e, id) => {
+        data += `
+        <div class="card bg-black/3  rounded-xl flex justify-between items-center px-3" id="${id}">
+<div class="">
+  <p class="text-5xl">${e.content}</p>
+  <p class="text-black/50 capitalize font-bold">${e.title}</p>
+</div>
+<img src="${e.img}" alt="" class="w-[80px] h-[80px] object-fit">
+</div>
+        `
+    })
+    cardsbox.innerHTML = data
 }
- toDo.push(sk)
-localStorage.setItem("todolist" , JSON.stringify(toDo))
-pp()
-  })
+uiDisplay()
+

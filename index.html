@@ -2,212 +2,83 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-
-  <main class="main">
-    <nav>
-      <div id="logo">
-        <img
-          src="https://www.brandlogopng.com/files/logo/yelp/yelp-mike-icon-transparent-marketing-media-social-website-m8w4.png"
-          alt="">
-        <h1>dashboard</h1>
+  <main class="w-full flex md:gap-8">
+    <div class="left-nav w-10 md:w-15 h-[100vh] flex flex-col items-center sticky top-0 md:static">
+      <div class="logo font-medium md:text-5xl w-full h-[55px] text-center">
+        Pr<span class="text-green-500">.</span>
       </div>
-      <ul>
-        <li><a href=""><i class="fa-solid fa-house-chimney"></i>
-            <p>home</p>
-          </a></li>
-        <li><a href=""><i class="fa-solid fa-list-check"></i>
-            <p>to do list</p>
-          </a></li>
-        <li><a href=""><i class="fa-solid fa-plane-departure"></i>
-            <p>daily planner</p>
-          </a></li>
-        <li><a href=""><i class="fa-solid fa-fire"></i>
-            <p>motivation</p>
-          </a></li>
-        <li><a href=""><i class="fa-solid fa-clock"></i>
-            <p>pomodoro timer</p>
-          </a></li>
+      <ul class="md:text-2xl w-full flex flex-col items-center gap-3 md:gap-5 text-black/50 md:mt-5">
+        <li>
+          <a href="" class="active"><i class="fa-solid fa-house"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="fa-solid fa-chart-simple"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="fa-solid fa-calendar-days"></i></a>
+        </li>
       </ul>
-    </nav>
-
-    <section class="view pb-5 relative">
-      <section class="top-nav">
-        <div class="card">
-          <input type="text" placeholder="search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div class="card-1">
-          <div class="notification">
-            <i class="fa-solid fa-bell"></i>
-          </div>
-          <div class="user overflow-hidden">
-<img src="" alt="" class="w-full h-full object-fit user-img object-center">
-          </div>
-          <div class="user-name font-bold">
-           
-          </div>
-        </div>
-      </section>
-      <section class="user-info">
-        <div class="card">
-          <h1 id="greeting">good morning, shivam</h1>
-          <p>let's start the day with smile!</p>
-        </div>
-        <div class="card-1">
-          <div class="date" id="date-1"></div>
-          <div class="week">
-            <h1 id="weeks"></h1>
-            <p id="month"></p>
-          </div>
-        </div>
-      </section>
-      <section class="home-viws flex gap-5 ">
-        <div class="cards" id="list-data">
-    
-        </div>
-
-        <div class="flex-1  p-6 bg-white shadow-xl rounded-2xl border border-gray-200">
-          <div class="flex items-center justify-between h-15 ">
-            <div class="box">
-              <h2 class="text-2xl font-bold">Today's Schedule</h2>
-              <p class="capitalize font-normal">never miss your task</p>
-            </div>
-            <div class="flex h-full  items-center gap-2">
-              <button class="bg-yellow-500/30 text-white w-8 h-8 rounded-full"><i class="fa-solid fa-eye"></i></button>
-              <p class="capitalize font-bold">hide</p>
-            </div>
-          </div>
-
-          <!-- Dotted current time line -->
-          <div class="timelinebox relative w-full h-100">
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black z-10">
-              <div class="w-2 h-2 bg-black rounded-full absolute -top-1 -left-1"></div>
-            </div>
-            <div
-            class="absolute left-5 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
-          </div>
-          <div
-          class="absolute left-25 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
-        </div>
-        <div
-        class="absolute left-45 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
-      </div>
-      <div
-      class="absolute left-65 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
     </div>
-    <div
-    class="absolute right-60 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
-  </div>
-  <div
-  class="absolute right-42 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
-</div>
-<div
-class="absolute right-23 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
-</div>
-
-<div
-class="absolute right-3 -translate-x-1/2 top-8 bottom-0 w-px border-l-2 border-dotted border-black/10 z-10">
-</div>
+    <div class="content-box flex-1">
+      <div class="top-nav w-full h-[25px] md:h-[55px] flex items-center justify-between px-2">
+        <h1 class="md:text-5xl capitalize font-medium tracking-tighter">dashboard</h1>
+        <div class="flex justify-center items-center h-screen gap-3">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="darkModeToggle" class="sr-only peer" />
+            <div
+              class=" md:w-14 h-5 w-8 md:h-8 bg-black peer-focus:outline-none rounded-full peer dark:bg-white peer-checked:bg-white/10 border-1 border-black/20 transition-all duration-300">
+            </div>
+            <div
+              class="absolute left-0.5 top-0.5 w-4 h-4 md:w-7 md:h-7 bg-white dark:bg-black rounded-full transition-all duration-300 peer-checked:translate-x-6 flex items-center justify-center text-white peer-checked:text-gray-800 text-[9px] md:text-lg">
+              <span id="icon"><i class="fa-solid fa-moon"></i></span>
+            </div>
+          </label>
+          <div class="w-[20px] h-[20px] md:w-[45px] md:h-[45px] rounded-full overflow-hidden">
+            <img src="https://imgs.search.brave.com/1rd7DLrI4ewYCXe9YSJYbKzpoHFSzwgJmO0vJ2jYPuk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQy/MDQ4Njg4OS9waG90/by9jYW5kaWQtcG9y/dHJhaXQtb2YteW91/bmctbWlkZGxlLWVh/c3Rlcm4tZGlnaXRh/bC1uYXRpdmUuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPVNW/N1poS2c3cUNlTDZv/WVpHQmFJeHFmVFRy/UVp1MDhrbmR2SUtx/ZExfUEk9" alt="" class="w-full h-full object-fit">
           </div>
-          <!--------timeline----->
-          <div class="time-line flex justify-between lowercase h-7">
-            <span>9am</span>
-            <span>10am</span>
-            <span>11am</span>
-            <span>12am</span>
-            <span>1pm</span>
-            <span>2PM</span>
-            <span>3PM</span>
-            <span>4PM</span>
-            <span>5PM</span>
-          </div>
+          <button class=" md:bg-green-400 md:w-20 md:h-10 rounded capitalize font-bold text-white"><p class="md:hidden text-black">+</p><p class="hidden md:inline">add task</p></button>
         </div>
-
-      </section>
-
-      <div class="storage w-full flex mt-5 gap-5">
-        <div class="w-[520px] bg-white rounded-2xl shadow-2xl text-center space-y-4 h-70 flex flex-col justify-evenly"
-          style="padding: 20px;">
-          <div class="flex items-center justify-center space-x-2">
-            <img src="https://cdn-icons-png.flaticon.com/512/2252/2252567.png" alt="" class="w-15">
-            <h2 class="text-2xl font-semibold text-gray-800">Storage</h2>
-          </div>
-
-          <!-- Progress Bar -->
-          <div class="relative w-full h-5 bg-gray-100 rounded-full overflow-hidden">
-            <div class="absolute top-0 left-0 h-full bg-black rounded-full" id="usage-bar" style="width: 40%;"></div>
-          </div>
-          <p class="text-xl text-gray-600 capitalize" id="storage-text">2 mb of 5 mb used</p>
-
-          <!-- Button -->
-          <button
-            class="bg-black text-white w-full capitalize  rounded-md font-medium hover:bg-gray-900 transition h-10 cursor-pointer"
-            id="clear">
-            clear data
-          </button>
-        </div>
-
-        <div
-          class="flex-1 mx-auto bg-white rounded-2xl shadow-xl text-center space-y-4 h-70 flex flex-col justify-evenly rounded"
-          style="padding: 20px;">
-
-        </div>
-
       </div>
-<section class="w-full h-[100vh] bg-white absolute top-0 z-40  px-2 overflow-hidden">
-  <div class="flex justify-between mt-5">
-    <h1 class="text-5xl capitalize font-bold">add list</h1>
-    <button class="bg-red-500 w-20 h-10 rounded font-bold">close</button>
-  </div>
-  <div class="cards flex">
-    <div class="card w-[450px]">
-      <label for="title" class="font-bold capitalize">title*</label>
-      <input type="text" name="" id="title" class="w-full outline-none border border-black/50 h-10 placeholder:capitalize px-2 rounded-lg" placeholder="add title">
-      <div class="time flex gap-2">
-<div class="box w-[50%]">
-  <label for="" class="font-bold capitalize" >date</label>
-  <input type="date" class="w-full outline-none border border-black/50 h-10 placeholder:capitalize px-2 rounded-lg" id="date">
 
-</div>
-<div class="box w-[50%]">
-  <label for="" class="font-bold capitalize">time</label>
-  <input type="time" class="w-full outline-none border border-black/50 h-10 placeholder:capitalize px-2 rounded-lg" id="time">
-  
-</div>
+<div class="content px-2">
+  <div class="grid grid-cols-1 lg:grid-cols-3  gap-5 w-full mt-5">
+    <div class="grid md:grid-cols-2 gap-5 md:col-span-2" id="cards-box">
+
+
+    </div>
+    <div class="card rounded-xl  shadow-2xs bg-black/3 p-3" >
+      <div class="w-full h-[70%]">
+        <img src="img/ChatGPT_Image_May_15__2025__03_07_42_PM-removebg-preview (1).png" alt="" style="width: 100%; height: 100%; object-fit:contain;">
       </div>
-      <label for="details" class="font-bold capitalize" >details*</label>
-    <textarea name="" id="details" class="w-full outline-none border border-black/50 h-10 placeholder:capitalize px-2 rounded-lg h-[100%]" placeholder="add details"></textarea>
-  <button class="bg-green-500/50 font-bold capitalize h-10 w-50 active:scale-95 transition-all" id="submit">add work...</button>  
+      <div class="time text-center">
+        <p class="text-5xl capitalize font-bold" id="timeDisplay">00:00:00</p>
+        <div class="flex justify-center items-center gap-5 mt-5">
+
+          <button class=" text-lg text-black/80"><i class="fa-solid fa-flag"></i></button>
+          <button class="w-12 bg-red-500 text-2xl h-12 rounded-full text-white" id="play-time"><i class="fa-solid fa-play"></i></button>
+          <button class="  text-lg  text-black/80" id="reset"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+        </div>
+      </div>
   </div>
-    <div class="card flex-1">
-      <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-6">
-        <h1 class="text-2xl font-bold mb-4 text-black/70">📋 my task</h1>
- <div id="list">
   
  </div>
-  
-      </div>
+</div>
+
+
+
     </div>
-  </div>
-</section>
-
-    </section>
-
-
-    
+    </div>
   </main>
 
   <script src="script.js"></script>
